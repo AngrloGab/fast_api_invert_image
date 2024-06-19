@@ -12,5 +12,6 @@ pip install -r requirements.txt
 python main.py
 
 ## Baixe um app de requisição HTTP recomendação: Postman
-Configuração do postman
-![image](https://github.com/AngrloGab/fast_api_invert_image/assets/81662040/1a85883c-3201-446c-a303-659a7fdadbb1)
+Configuração do postman:
+
+![image](https://github.com/AngrloGab/fast_api_invert_image/assets/81662040/793b3ca9-5377-49d7-a785-8f58a8993fdf)
