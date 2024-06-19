@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <style>
+        /* Define o estilo básico da página */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        /* Define o estilo do formulário */
+        form {
+            margin: 20px;
+        }
+        /* Define o estilo da imagem resultante */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho da página -->
+    <h1>Upload an Image</h1>
+    
+    <!-- Formulário para upload de imagem -->
+    <form id="upload-form" enctype="multipart/form-data">
+        <!-- Campo de entrada para seleção de arquivos de imagem -->
+        <input type="file" id="file-input" name="file" accept="image/*" required>
+        <!-- Botão para enviar o formulário -->
+        <button type="submit">Upload</button>
+    </form>
+    
+    <!-- Elemento img para exibir a imagem resultante -->
+    <img id="result-image" src="" alt="Result Image">
+
+    <!-- Script JavaScript para manipular o envio do formulário e exibição da imagem resultante -->
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async (event) => {
+            event.preventDefault();  // Previne o envio padrão do formulário
+
+            // Cria um novo objeto FormData para armazenar o arquivo selecionado
+            const formData = new FormData();
+            const fileField = document.getElementById('file-input');
+            formData.append('file', fileField.files[0]);
+
+            // Envia o formulário usando fetch API
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                // Se a resposta for bem-sucedida, cria um URL para o blob da imagem e atualiza o src da imagem resultante
+                const blob = await response.blob();
+                const url = URL.createObjectURL(blob);
+                document.getElementById('result-image').src = url;
+            } else {
+                // Se a resposta não for bem-sucedida, exibe um alerta
+                alert('Failed to upload image');
+            }
+        });
+    </script>
+</body>
+</html>
