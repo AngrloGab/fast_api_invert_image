@@ -8,9 +8,9 @@ python -m venv venv
 ## Instale os requerimentos com o seguinte comando:
 pip install -r requirements.txt
 
-##Execute o código com:
+## Execute o código com:
 python main.py
 
-##Baixe um app de requisição HTTP recomendação: Postman
-
+## Baixe um app de requisição HTTP recomendação: Postman
+Configuração do postman
 ![image](https://github.com/AngrloGab/fast_api_invert_image/assets/81662040/1a85883c-3201-446c-a303-659a7fdadbb1)
