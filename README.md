@@ -1,8 +1,8 @@
 # fast_api_invert_image
 backand api com função de filtro de inversão de imagem
 
-## Para executar o código crie um ambiente virtual
-python -m venv venv
+## Para executar o código crie um ambiente virtual, executando os seguintes comando em um terminal acessando o diretório do projeto
+python -m venv venv <br/>
 .\venv\Scripts\activate
 
 ## Instale os requerimentos com o seguinte comando:
